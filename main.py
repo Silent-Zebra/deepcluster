@@ -129,7 +129,7 @@ def main():
 
     # load the data
     end = time.time()
-    dataset = datasets.CIFAR10(root="./data", download=True, transform=transforms.Compose(tra))
+    dataset = datasets.CIFAR100(root="./data", download=True, transform=transforms.Compose(tra))
     if args.verbose: print('Load dataset: {0:.2f} s'.format(time.time() - end))
     dataloader = torch.utils.data.DataLoader(dataset,
                                              batch_size=args.batch,
