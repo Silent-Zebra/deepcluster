@@ -70,6 +70,8 @@ def main():
     torch.manual_seed(args.seed)
     torch.cuda.manual_seed_all(args.seed)
     np.random.seed(args.seed)
+    
+    os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
     # CNN
     if args.verbose:
@@ -254,7 +256,7 @@ def train(loader, model, crit, opt, epoch):
                 'optimizer' : opt.state_dict()
             }, path)
 
-        target = target.cuda(async=True)
+        target = target.cuda(non_blocking=True)
         input_var = torch.autograd.Variable(input_tensor.cuda())
         target_var = torch.autograd.Variable(target)
 
