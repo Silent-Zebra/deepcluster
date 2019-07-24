@@ -9,6 +9,8 @@ import os
 import pickle
 import time
 
+import faiss.gpu
+
 import faiss
 import numpy as np
 from sklearn.metrics.cluster import normalized_mutual_info_score
@@ -129,7 +131,7 @@ def main():
 
     # load the data
     end = time.time()
-    dataset = datasets.CIFAR100(root="./data", download=True, transform=transforms.Compose(tra))
+    dataset = datasets.ImageFolder(args.data, transform=transforms.Compose(tra))
     if args.verbose: print('Load dataset: {0:.2f} s'.format(time.time() - end))
     dataloader = torch.utils.data.DataLoader(dataset,
                                              batch_size=args.batch,
