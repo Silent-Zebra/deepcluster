@@ -9,8 +9,6 @@ import os
 import pickle
 import time
 
-import faiss.gpu
-
 import faiss
 import numpy as np
 from sklearn.metrics.cluster import normalized_mutual_info_score
