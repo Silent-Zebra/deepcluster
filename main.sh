@@ -6,17 +6,16 @@
 #
 #!/bin/bash
 
-DIR="/datasets01/imagenet_full_size/061417/train"
+DIR="data/tiny-imagenet-200"
 ARCH="alexnet"
 LR=0.05
 WD=-5
 K=10000
-WORKERS=12
+WORKERS=2
 EXP="exp"
 PTYHON=""
 
 mkdir -p ${EXP}
 
-CUDA_VISIBLE_DEVICES=0
-python3  main.py ${DIR} --exp ${EXP} --arch ${ARCH} \
+CUDA_VISIBLE_DEVICES=0 python3  main.py ${DIR} --exp ${EXP} --arch ${ARCH} \
   --lr ${LR} --wd ${WD} --k ${K} --sobel --verbose --workers ${WORKERS}
