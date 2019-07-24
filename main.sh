@@ -10,8 +10,8 @@ DIR="data/tiny-imagenet-200"
 ARCH="alexnet"
 LR=0.05
 WD=-5
-K=10000
-WORKERS=2
+K=2000
+WORKERS=12
 EXP="exp"
 PTYHON=""
 
